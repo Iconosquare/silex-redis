@@ -1,0 +1,25 @@
+{
+    "name": "tripnity/silex-redis",
+    "description": "Redis wrapper for Silex",
+    "keywords": ["silex", "redis", "iconosquare"],
+    "homepage": "https://github.com/Tripnity/silex-redis",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Pierre",
+            "email": "pierre@statigr.am"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "require-dev": {
+        "silex/silex": "*",
+	    "colinmollenhour/credis": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Redis\\Silex": "src"
+        }
+    }
+}
