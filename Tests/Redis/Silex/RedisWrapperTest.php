@@ -32,4 +32,18 @@ class RedisWrapperTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Credis_Cluster', $cluster);
     }
 
+    /**
+     * test setServers
+     */
+    public function testSetServers()
+    {
+        $servers = array(
+            array('host' => '127.0.0.1', 'port' => '6379', 'timeout' => 0.5, 'alias' => 'master', 'isMaster' => true)
+        );
+
+        $cluster = $this->object->setServers($servers);
+
+        $this->assertInstanceOf('Credis_Cluster', $cluster);
+    }
+
 }
