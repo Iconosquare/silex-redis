@@ -22,4 +22,14 @@ class RedisWrapperTest extends \PHPUnit_Framework_TestCase
         $this->object = new RedisWrapper($servers);
     }
 
+    /**
+     * test getCluster
+     */
+    public function testGetCluster()
+    {
+        $cluster = $this->object->getCluster();
+
+        $this->assertInstanceOf('Credis_Cluster', $cluster);
+    }
+
 }
