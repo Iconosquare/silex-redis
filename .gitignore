@@ -1,2 +1,16 @@
-/vendor/
+.waf-*
+.lock-*
 composer.lock
+composer.phar
+vendor/
+app/cache/
+web/static/js/bower_components/
+/nbproject/
+bin/
+.DS_Store
+cache.properties
+build
+.idea
+.svn
+app/config/config.php
+app/console
