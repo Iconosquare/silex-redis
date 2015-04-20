@@ -21,11 +21,11 @@ $app['redis.servers'] = [
 ```
 
 ### Params
-host - the redis host, pretty obvious
-port - redis port on the server
-timeout - the delay waiting response (seconds)
-alias - server alias in the cluster
-isMaster - set the redis master server for clustering
+host - the redis host, pretty obvious <br/>
+port - redis port on the server <br/>
+timeout - the delay waiting response (seconds) <br/>
+alias - server alias in the cluster <br/>
+isMaster - set the redis master server for clustering <br/>
 max_retries (optional) - set the max retry after connection failure
 
 
