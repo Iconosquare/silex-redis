@@ -43,12 +43,13 @@ class RedisWrapper
     private function connect()
     {
         // Reconnexion si master déco
-        if ($this->connected && $this->cluster instanceof \Credis_Cluster && !$this->cluster->client($this->masterAlias)->isConnected()) {
+        if ($this->connected && $this->cluster instanceof \Credis_Cluster
+            && !$this->cluster->client($this->masterAlias)->isConnected()) {
             $this->cluster->client($this->masterAlias)->connect();
         }
 
         if (!$this->connected) {
-            try{
+            try {
                 $servers = array();
                 foreach ($this->servers as $server) {
                     $servers[] = array(
@@ -59,10 +60,19 @@ class RedisWrapper
                         'master' => $server['isMaster']
                     );
 
-                    if ($server['isMaster']) $this->masterAlias = $server['alias'];
+                    if ($server['isMaster']) {
+                        $this->masterAlias = $server['alias'];
+                    }
                 }
                 $this->cluster = new \Credis_Cluster($servers);
                 $this->connected = true;
+
+                // Set the max_retry options
+                foreach ($this->cluster->clients() as $index => $client) {
+                    if (isset($this->servers[$index]['max_retries'])) {
+                        $client->setMaxConnectRetries($this->servers[$index]['max_retries']);
+                    }
+                }
             } catch (\Exception $e) {
                 // Erreur connexion redis
             }
@@ -90,4 +100,4 @@ class RedisWrapper
         $this->connect();
         return $this->getCluster();
     }
-} 
+}
