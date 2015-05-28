@@ -16,7 +16,7 @@
     },
     "require-dev": {
         "silex/silex": "*",
-	    "colinmollenhour/credis": "dev-master"
+	"colinmollenhour/credis": "dev-master"
     },
     "autoload": {
         "psr-0": {
