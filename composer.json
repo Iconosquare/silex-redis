@@ -12,11 +12,11 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "colinmollenhour/credis": "*"
+        "colinmollenhour/credis": "dev-master"
     },
     "require-dev": {
         "silex/silex": "*",
-	    "colinmollenhour/credis": "*"
+	    "colinmollenhour/credis": "dev-master"
     },
     "autoload": {
         "psr-0": {
